@@ -31,15 +31,21 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 const dbUrl = process.env.ATLASDB_URL;
 
-main()
- .then(() => {
-    console.log("connected to db");
- })
- .catch(err => console.log(err));
+
 
 async function main() {
-  await mongoose.connect(dbUrl);
+    try { 
+        await mongoose.connect(dbUrl);
+        console.log("db connected successfulley")
+    } catch(error) {
+        console.log("db failed to connect");
+        throw new ExpressError(500, "Wanderlust failed to connect try again later");
+    }
+  
 }
+
+main()
+
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
