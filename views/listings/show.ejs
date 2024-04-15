@@ -74,7 +74,7 @@
         <div class="col-8 offset-3 mb-3">
             <% if(currUser) { %>
                 <h4>Leave a review</h4>
-                <form method="post" action="/listings/<%=listing._id %>/review" novalidate class="needs-validation">
+                <form method="post" action="/listings/<%=listing._id %>/reviews" novalidate class="needs-validation">
                     <div class="mb-3 mt-3">
                         <label for="rating" class="form-label">Rating</label>
                         <fieldset class="starability-slot">
@@ -116,7 +116,7 @@
                         </p>
                          <p class="card-text"><%=review.comment %></p>
                        </div>
-                       <form class="mb-3" method="POST" action="/listings/<%=listing._id %>/review/<%=review._id %>/?_method=DELETE">
+                       <form class="mb-3" method="POST" action="/listings/<%=listing._id %>/reviews/<%=review._id %>/?_method=DELETE">
                         <button class="btn btn-dark">Delete</button>
                        </form>
                     </div>
