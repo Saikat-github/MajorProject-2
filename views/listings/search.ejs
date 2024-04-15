@@ -113,8 +113,46 @@
         <% for(listing of listings) { %>
             <a href="/listings/<%=listing._id %>" class="listing-link">
                 <div class="card listing-card ">
-                    <img src="<%=listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;" >
-                    <div class="card-img-overlay"></div>
+                    <!-- <img src="<%=listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;" > -->
+                    <div id="<%=listing._id %>" class="carousel slide">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#<%=listing._id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#<%=listing._id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#<%=listing._id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <% if(listing.image.length === 3) { %>
+                                <div class="carousel-item active card-img-top">
+                                  <img src="<%=listing.image[0].url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                                </div>
+                                <div class="carousel-item card-img-top">
+                                  <img src="<%=listing.image[1].url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">    
+                                </div>
+                                <div class="carousel-item card-img-top">
+                                  <img src="<%=listing.image[2].url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                                </div>
+                              <% } else { %>
+                                <div class="carousel-item active card-img-top">
+                                  <img src="https://images.pexels.com/photos/18944516/pexels-photo-18944516/free-photo-of-view-of-a-wooden-pier-on-a-body-of-water-and-autumnal-trees-in-distance.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                                </div>
+                                <div class="carousel-item card-img-top">
+                                  <img src="https://images.pexels.com/photos/18944516/pexels-photo-18944516/free-photo-of-view-of-a-wooden-pier-on-a-body-of-water-and-autumnal-trees-in-distance.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="listing-image" style="height: 20rem;">    
+                                </div>
+                                <div class="carousel-item card-img-top">
+                                  <img src="https://images.pexels.com/photos/18944516/pexels-photo-18944516/free-photo-of-view-of-a-wooden-pier-on-a-body-of-water-and-autumnal-trees-in-distance.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                                </div>
+                              <% } %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#<%=listing._id %>" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#<%=listing._id %>" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
                     <div class="card-body">
                       <p class="card-text">
                         <b><%=listing.title %></b> <br>

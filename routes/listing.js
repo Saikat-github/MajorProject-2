@@ -12,20 +12,20 @@ router.route("/")
    .get(wrapAsync (listingController.index))
    .post( 
     isLoggedIn, 
-    upload.single('listing[image]'),
+    upload.array('listing[image]', 3),
     validateListing, 
     wrapAsync (listingController.createListing));
   
   //New Route
   router.get("/new", isLoggedIn, listingController.getNewForm);
-  router.get("/search", wrapAsync(listingController.searchListing));
+  router.get("/search", listingController.searchListing);
 
   router.route("/:id")
   .get(wrapAsync (listingController.showListing))
   .put(
    isLoggedIn,
    isOwner, 
-   upload.single('listing[image]'),
+   upload.array('listing[image]', 3),
    validateListing, 
    wrapAsync (listingController.updateListing))
   .delete(

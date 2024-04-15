@@ -1,130 +1,187 @@
 <% layout("/layouts/boilerplate") %>
-
 <style>
-  #filters {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .filter {
-    text-align: center;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    opacity: 0.7;
-  }
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
 
-  .filter:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
+    .filter {
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        opacity: 0.7;
+    }
 
-  .filter p {
-    font-size: 0.8rem;
-  }
+    .filter:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
 
-  .tax-info {
-    display: none;
-  }
+    .filter p {
+        font-size: 0.8rem;
+    }
+    
+    .tax-info {
+        display: none;
+    }
 
-  .tax-toggle {
-    border: 1px solid black;
-    border-radius: 1rem;
-    height: 3.25rem;
-    padding: 1rem;
-    margin-left: 2rem;
-    display: flex;
-    align-items: center;
-  }
+    .tax-toggle {
+        border: 1px solid black;
+        border-radius: 1rem;
+        height: 2.5rem;
+        /* padding: 0.5rem 0.5rem 2rem 0.5rem; */
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+    }
+
 </style>
 
+<body>
+    <!-- <h3>All Listings</h3> -->
+    <!-- <form method="get" action="/listings/new">
+        <button>Create New Listing</button>
+    </form> -->
     <div id="filters">
-      <div class="filter">
-        <div><i class="fa-solid fa-fire"></i></div>
-        <p>Trending</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-bed"></i></div>
-        <p>Rooms</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-mountain-city"></i></div>
-        <p>Iconic Cities</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-mountain"></i></div>
-        <p>Mountain</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-brands fa-fort-awesome"></i></div>
-        <p>Castles</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-person-swimming"></i></div>
-        <p>Amazing Pools</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-campground"></i></div>
-        <p>Camping</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-cow"></i></div>
-        <p>Farms</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-snowflake"></i></div>
-        <p>Arctic</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-umbrella-beach"></i></div>
-        <p>Beach</p>
-      </div>
-      <div class="filter">
-        <div><i class="fa-solid fa-water"></i></div>
-        <p>Lakes</p>
-      </div>
-      <!-- <div class="filter">
-        <div><i class="fa-solid fa-mountain-sun"></i></div>
-        <p>World's Top</p>
-      </div> -->
-
-      <div class="tax-toggle">
-        <div class="form-check-reverse form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
         </div>
-      </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-sun"></i></div>
+            <p>Mountains</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Iconic Cities</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing Pools</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-cow"></i></div>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i></div>
+            <p>Arctic</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beach</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-water"></i></div>
+            <p>Lakes</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-ship"></i></div>
+            <p>Boats</p>
+        </div>
+        <div class="tax-toggle">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display Taxes</label>
+            </div>
+        </div>
     </div>
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-        <% for(let listing of allListings) { %>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(listing of allListings) { %>
             <a href="/listings/<%=listing._id %>" class="listing-link">
-                <div class="card col listing-card">
-                    <img src="<%=listing.image.url %>" class="card-img-top" alt="listing_image" style="height:  20rem;">
-                    <div class="card-img-overlay"></div>
+                <div class="card listing-card ">
+                    <!-- <img src="<%=listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;" > -->
+                    <div id="<%=listing._id %>" class="carousel slide">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#<%=listing._id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#<%=listing._id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#<%=listing._id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <% if(listing.image.length === 3) { %>
+                                <div class="carousel-item active card-img-top">
+                                  <img src="<%=listing.image[0].url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                                  <div class="card-img-overlay"></div>
+                                </div>
+                                <div class="carousel-item card-img-top">
+                                  <img src="<%=listing.image[1].url %>" class="card-img-top" alt="listing-image" style="height: 20rem;"> 
+                                  <div class="card-img-overlay"></div>   
+                                </div>
+                                <div class="carousel-item card-img-top">
+                                  <img src="<%=listing.image[2].url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                                  <div class="card-img-overlay"></div>
+                                </div>
+                              <% } else { %>
+                                <div class="carousel-item active card-img-top">
+                                  <img src="https://images.pexels.com/photos/18944516/pexels-photo-18944516/free-photo-of-view-of-a-wooden-pier-on-a-body-of-water-and-autumnal-trees-in-distance.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                                  <div class="card-img-overlay"></div>
+                                </div>
+                                <div class="carousel-item card-img-top">
+                                  <img src="https://images.pexels.com/photos/18944516/pexels-photo-18944516/free-photo-of-view-of-a-wooden-pier-on-a-body-of-water-and-autumnal-trees-in-distance.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="listing-image" style="height: 20rem;">  
+                                  <div class="card-img-overlay"></div>  
+                                </div>
+                                <div class="carousel-item card-img-top">
+                                  <img src="https://images.pexels.com/photos/18944516/pexels-photo-18944516/free-photo-of-view-of-a-wooden-pier-on-a-body-of-water-and-autumnal-trees-in-distance.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                                  <div class="card-img-overlay"></div>
+                                </div>
+                              <% } %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#<%=listing._id %>" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#<%=listing._id %>" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
                     <div class="card-body">
                       <p class="card-text">
-                        <b><%=listing.title %></b>
-                        <br>
-                        &#8377; <%=listing.price.toLocaleString("en-IN") %>/night
-                        <i class="tax-info"> &nbsp; +18% GST</i>
+                        <b><%=listing.title %></b> <br>
+                        &#8377;<%=listing.price.toLocaleString("en-IN") %>/night
+                        <span class="tax-info">+18% GST</span>
                       </p>
                     </div>
-                  </div>
+                </div>
             </a>
-            
-         <% } %>
+        <% } %>
     </div>
 
     <script>
-      let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-      taxSwitch.addEventListener("click", () => {
-        let taxInfo = document.getElementsByClassName("tax-info");
-        for (info of taxInfo) {
-          if(info.style.display != "inline") {
-            info.style.display = "inline";
-          } else {
-            info.style.display = "none";
-          }
-          
-        }
-      })
+        let taxSwitch = document.querySelector("#flexSwitchCheckDefault");
+        taxSwitch.addEventListener("click", ()=> {
+            let taxInfo = document.getElementsByClassName("tax-info");
+            for (info of taxInfo) {
+                if(info.style.display != "inline") {
+                info.style.display = "inline";
+                } else {
+                info.style.display = "none";
+                }
+            }
+        });
     </script>
+</body>

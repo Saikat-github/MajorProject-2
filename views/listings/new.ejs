@@ -1,52 +1,62 @@
 <% layout("/layouts/boilerplate") %>
-<div class="row mt-3">
-    <div class="col-8 offset-2">
-        <h3>Create a new listing here</h3>
-        <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" name="listing[title]" placeholder="Add a catchy title" class="form-control" required>
-                <div class="valid-feedback">Title looks good!</div>
-            </div>
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea type="text" name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
-                <div class="invalid-feedback">
-                    Please enter a short description
-               </div>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Upload Image</label>
-                <input type="file" name="listing[image]" class="form-control" required>
-                <div class="invalid-feedback">
-                    Please enter a valid link for image
+<body>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <h3>Create a new listing here</h3>
+            <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" placeholder="Add a catchy title" class="form-control" required>
+                    <div class="valid-feedback">Title looks good!</div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="mb-3 col-md-4">
-                    <label for="price" class="form-label">Price</label>
-                    <input name="listing[price]" placeholder="1200" class="form-control" required>
-                    <div class="invalid-feedback">
-                        Price should be valid
-                   </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="Write something about your listing" class="form-control" required></textarea>
+                    <div class="invalid-feedback">Please give a short description</div>
                 </div>
-                <div class="mb-3 col-md-8">
-                    <label for="country" class="form-label">Country</label>
-                    <input type="text" name="listing[country]" placeholder="India" class="form-control" required>
-                    <div class="invalid-feedback">
-                         Country name should be valid
+                <div class="mb-3">
+                    <!-- <label for="image" class="form-label">Upload Image</label>
+                    <input name="listing[image]" type="file" placeholder="enter image URL/Link"  class="form-control" required> -->
+                    <!-- <fieldset class="img-links"> -->
+                        <label for="first-img1" title="Terrible" class="form-label">Img1</label>
+                        <input type="file" id="first-img1" name="listing[image]" class="form-control" required/>
+                        <div class="invalid-feedback">Please upload all images</div>
+                        <label for="first-img2" title="Not good" class="form-label">Img2</label>
+                        <input type="file" id="first-img2" name="listing[image]" class="form-control" required/>
+                        <div class="invalid-feedback">Please upload all images</div>
+                        <label for="first-img3" title="Average" class="form-label">Img3</label>
+                        <input type="file" id="first-img3" name="listing[image]" class="form-control" required/>
+                        <div class="invalid-feedback">Please upload all images</div>
+                        <!-- <label for="first-img4" title="Very good" class="form-label">img4</label>
+                        <input type="file" id="first-img4" name="listing[image]" class="form-control" />
+                        <label for="first-img5" title="Amazing" class="form-label">img5</label>
+                        <input type="file" id="first-img5" name="listing[image]" class="form-control" /> -->
+                    <!-- </fieldset> -->
+                </div>
+                
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="text" name="listing[price]" placeholder="2000"  class="form-control">
+                        <div class="invalid-feedback">Price should be valid</div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" name="listing[country]" placeholder="India"  class="form-control" required>
+                        <div class="invalid-feedback">Country should be valid</div>
                     </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <label for="location" class="form-label">Location</label>
-                <input type="text" name="listing[location]" placeholder="Jaipur, Rajasthan" class="form-control" required>
-                <div class="invalid-feedback">
-                    Location should be valid
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="listing[location]" placeholder="enter location"  class="form-control" required>
+                    <div class="invalid-feedback">Location should be valid</div>
                 </div>
-            </div>
-            <button class="btn btn-dark add-btn mt-3">Add</button>            
-        </form>
+                
+                <button class="btn btn-dark add-btn">Submit</button>
+                <br><br>
+        
+            </form>
+        </div>
     </div>
-</div>
-    
+
+</body>
