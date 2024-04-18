@@ -121,7 +121,7 @@ module.exports.destroyListing = async (req, res) => {
 
 
 module.exports.searchListing = async (req, res) => {
-  let {country} = req.query;
-  let listings = await Listing.find({country: country});
+  let {location} = req.query;
+  let listings = await Listing.find({location: location});
   res.render("listings/search.ejs", {listings})
 };
