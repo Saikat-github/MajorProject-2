@@ -20,9 +20,10 @@ const initDB = async () => {
    initData.data = initData.data.map((obj) => ({...obj, owner: '65fc08ee1426da36e9ae2203',geometry :{
     type: "Point",
     coordinates: [77.1025, 28.7041]
-   }}));
+   }, contact : 0}));
    await Listing.insertMany(initData.data);
    console.log("data was initialized")
 };
 
 initDB();
+
