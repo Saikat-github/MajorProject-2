@@ -90,7 +90,7 @@
                 </div>
                 <div class="mb-3 col-md-4">
                   <label for="contact" class="form-label">Phone No.</label>
-                  <input type="text" name="listing[contact]" placeholder="0000000000"  class="form-control" value="<%=listing.contact %>" required>
+                  <input type="text" name="listing[contact]" placeholder="0000000000"  class="form-control" max="9999999999" min="1000000000" value="<%=listing.contact %>" required>
                   <div class="invalid-feedback">Contact should be valid</div>
               </div>
                 
