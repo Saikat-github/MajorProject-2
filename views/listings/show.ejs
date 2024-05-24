@@ -5,10 +5,10 @@
 </script>
 <body>
     <div class="row mt-3">
-        <div class="col-8 offset-3">
+        <div class="col-md-8 offset-md-3">
             <h3><%=listing.title %></h3>
         </div>
-        <div class="card listing-card  col-6 offset-3">
+        <div class="card listing-card  col-md-6 offset-md-3">
                 <!-- <img src="<%=listing.image[0].url %>" class="card-img-top show-img" alt="listing_image"> -->
                 <div id="<%=listing._id %>" class="carousel slide">
                     <div class="carousel-indicators">
@@ -61,7 +61,7 @@
         <br>
         <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
             <div class="btns mb-3">
-                <a href="/listings/<%=listing._id %>/edit" class="btn btn-dark col-1 offset-3">Edit</a>
+                <a href="/listings/<%=listing._id %>/edit" class="btn btn-dark col-md-1 offset-md-3">Edit</a>
              
                 <form method="post" action="/listings/<%=listing._id %>?_method=DELETE">
                     <button class="btn btn-dark offset-5 del-btn">Delete</button>
@@ -69,13 +69,16 @@
             </div>
         <% } %>
 
-      
 
-        
-        <div class="col-8 offset-3 mb-3">
+
+        <div class="col-md-8 offset-md-3 mb-3">
+          
+            <br>
+            <br>
+            <br>
             <% if(currUser) { %>
                 <h4>Leave a review</h4>
-                <form method="post" action="/listings/<%=listing._id %>/reviews" novalidate class="needs-validation">
+                <form method="post" action="/listings/<%=listing._id %>/review" novalidate class="needs-validation">
                     <div class="mb-3 mt-3">
                         <label for="rating" class="form-label">Rating</label>
                         <fieldset class="starability-slot">
@@ -110,14 +113,14 @@
             <div class="row">
                 <p><b>All Reviews</b></p>
                 <% for(review of listing.reviews) {%>
-                    <div class="card col-5 ms-3 mb-3">
+                    <div class="card col-sm-4 ms-3 mb-3 ">
                        <div class="card-body">
                          <h5 class="card-title">@<%=review.author.username %> </h5>
                          <p class="starability-result" data-rating="<%=review.rating %>">
                         </p>
                          <p class="card-text"><%=review.comment %></p>
                        </div>
-                       <form class="mb-3" method="POST" action="/listings/<%=listing._id %>/reviews/<%=review._id %>/?_method=DELETE">
+                       <form class="mb-3" method="POST" action="/listings/<%=listing._id %>/review/<%=review._id %>/?_method=DELETE">
                         <button class="btn btn-dark">Delete</button>
                        </form>
                     </div>
@@ -125,8 +128,8 @@
             </div>
             <% } %>
         </div>
-        <div class="col-6 offset-3 mb-3">
-            <h3>Where you'll be</h3>
+        <h3 style="text-align: center;">Where you'll be</h3>
+        <div class="mb-3 map">
             <div id="map"></div>
         </div>
     </div>

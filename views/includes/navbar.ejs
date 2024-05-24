@@ -19,6 +19,20 @@
     border-radius: 25px;
     padding: 0.5rem 2rem 0.5rem 2rem;
   }
+
+  @media (max-width: 768px) {
+    #navbarNavAltMarkup {
+        background-color: #fff !important;
+        z-index: 5;
+    }
+    .search-opn {
+        display: none;
+    }
+    .explore {
+      display: none;
+    }
+    
+}
 </style>
 
 
@@ -31,10 +45,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="/listings">Explore</a>
+          <a class="nav-link explore" href="/listings">Explore</a>
         </div>
 
-        <div class="navbar-nav ms-auto">
+        <div class="navbar-nav ms-auto search-opn">
           <form class="d-flex" role="search" method="get" action="/listings/search">
             <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search" name="location">
             <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>

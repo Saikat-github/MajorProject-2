@@ -115,7 +115,14 @@ body {
 
 
 /* map */
+.map {
+    display: flex;
+    justify-content: center;
+}
+
 #map { 
     height: 400px;
     width: 80vh;
 }
+
+
